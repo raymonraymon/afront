@@ -1,0 +1,10 @@
+PROJECT(gtb)
+
+IF (NOT DEFINED CMAKE_CXX_FLAGS)
+  SET (CMAKE_CXX_FLAGS "-O2 -DREAL_IS_FLOAT -DNO_EXCEPTIONS -D_REENTRANT -fno-exceptions")
+ENDIF (NOT DEFINED CMAKE_CXX_FLAGS)
+
+INCLUDE_DIRECTORIES (.. ../clapack)
+SET (GTB_SRCS ui/commandline.cpp graphics/line2.cpp graphics/box2.cpp graphics/segment2.cpp graphics/ray2.cpp graphics/surfelset.cpp gtb.cpp debug/debug.cpp error/err.cpp error/error.cpp graphics/box3.cpp graphics/camera.cpp graphics/camera_path.cpp graphics/circle3.cpp graphics/color_rgb.cpp graphics/cone.cpp graphics/coordinate_system.cpp graphics/graphics.cpp graphics/icosahedron.cpp graphics/image.cpp graphics/imageio.cpp graphics/image_float.cpp graphics/image_tile.cpp graphics/image_tile_set.cpp graphics/image_viewer.cpp graphics/indexed_triangle.cpp graphics/indexed_triangle_set.cpp graphics/kdtree.cpp graphics/light.cpp graphics/line3.cpp graphics/mat3.cpp graphics/material.cpp graphics/model.cpp graphics/model_rtpi.cpp graphics/model_viewer.cpp graphics/octree.cpp graphics/octree_node.cpp graphics/octree_node_cache.cpp graphics/ogltools.cpp graphics/plane.cpp graphics/point2.cpp graphics/point3.cpp graphics/polygon3.cpp graphics/ray3.cpp graphics/rtpi.cpp graphics/rtpi_grid.cpp graphics/rtpi_strip.cpp graphics/segment3.cpp graphics/sphere.cpp graphics/surfelhierarchy.cpp  graphics/surfelsetmultiview.cpp graphics/surfelsettools.cpp graphics/surfelsetview.cpp graphics/surfel_set_io.cpp graphics/text.cpp graphics/tiff_rgba_image.cpp graphics/triangle3.cpp graphics/triangle_mesh.cpp graphics/tsetio.cpp graphics/vector2.cpp graphics/vector3.cpp graphics/view.cpp graphics/viewport.cpp io/io.cpp math/amat.cpp math/amatc.cpp math/math.cpp math/mathtools.cpp math/matrix4.cpp math/mynr.cpp  math/nrold/nrutil.cpp memory/memory.cpp network/netutil.cpp network/network.cpp network/socket_client.cpp network/socket_server.cpp plp/extinction_coef.cpp plp/extinction_coef_set.cpp plp/front.cpp plp/plp.cpp real/real.cpp ui/keyboard.cpp ui/mouse.cpp ui/ui.cpp util/timer.cpp util/util.cpp math/ran1.c)
+ADD_LIBRARY (gtb STATIC ${GTB_SRCS})
+

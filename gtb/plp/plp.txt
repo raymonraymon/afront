@@ -1,0 +1,59 @@
+run PLP to determine visible set
+
+if cPLP enabled {
+
+	clear z-buffer
+
+	disable writing colors
+
+	enable writing z-buffer
+
+	render visible set geometry only (no need to set colors or
+	normals)
+
+	(at this point we have the z-buffer correctly set for the
+	approximate visible set)
+
+	while front is not empty {
+
+		enable writing colors
+
+		disable writing z-buffer
+
+		clear colors
+
+		for each node in the front {
+
+			remove node from front
+
+			render node's bounding box with unique color
+
+		}
+
+		(at this point the front is empty, and the color
+		buffer tells us what nodes are visible given the
+		previous geometry)
+
+		disable writing colors
+
+		enable writing z-buffer
+
+		for each visible node {
+
+			add node to visible set
+
+			render node's geometry
+
+			add node's neighbors to front
+
+		}
+
+	}
+
+	enable writing colors
+
+}
+
+clear colors and z-buffer
+
+render visible set
